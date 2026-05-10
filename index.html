@@ -43,6 +43,17 @@
             line-height: 1.6;
         }
 
+        #navbar {
+            background: rgba(0, 0, 0, 0.5);
+            animation: navbar-scroll linear both;
+            animation-timeline: scroll();
+            animation-range: 0px 50px;
+        }
+
+        @keyframes navbar-scroll {
+            to { background: #000; }
+        }
+
         nav {
             position: fixed;
             top: 0;
@@ -362,17 +373,6 @@
     </div>
 
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-
-            if (window.scrollY > 50) {
-                navbar.style.background = '#000';
-            } else {
-                navbar.style.background = 'rgba(0,0,0,0.8)';
-            }
-        });
-
         // Contact button
         function sendMessage() {
             alert("Thank you! Your message has been sent.");
