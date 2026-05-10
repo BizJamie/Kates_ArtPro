@@ -5,6 +5,8 @@
 		font-family: Arial, sans-serif;
 }
 
+html { scroll-behavior: smooth; }
+
 body {
 		background: #111;
 		color: white;
