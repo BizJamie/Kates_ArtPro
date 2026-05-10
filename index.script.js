@@ -1,4 +1,4 @@
-const MY_EMAIL = 'me@example.com';
+const MY_EMAIL = 'kateartprofolio@gmail.com';
 
 function showMessage(message) {
 		const messageEl = document.querySelector('.contact-form-message');
