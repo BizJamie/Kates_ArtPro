@@ -1,3 +1,11 @@
+const MY_EMAIL = 'me@example.com';
+
+function showMessage(message) {
+		const messageEl = document.querySelector('.contact-form-message');
+		messageEl.textContent = message;
+		setTimeout(() => messageEl.textContent = "", 5000); // hide message after 5s
+}
+
 function sendMessage(e) {
 		e.preventDefault();
 		const name    = document.getElementById('name').value.trim();
@@ -6,7 +14,7 @@ function sendMessage(e) {
 
 		// validate
 		if (!name || !email || !message) {
-				alert('Please fill in all required fields.');
+				showMessage('Please fill in all required fields.');
 				return;
 		}
 
@@ -20,19 +28,15 @@ function sendMessage(e) {
 		].join('\n');
 
 		// open link with user's default mail client
-		const mailto = `mailto:you@example.com`
+		const mailto = `mailto:${MY_EMAIL}`
 				+ `?subject=${encodeURIComponent('Contact form')}`
 				+ `&body=${encodeURIComponent(body)}`;
 		window.location.href = mailto;
 
 		// show thank you message and reset form
-		const messageEl = document.querySelector('.contact-form-message');
-		messageEl.textContent = "Thank you! Your message has been sent.";
-		setTimeout(() => messageEl.textContent = "", 5000); // hide message after 5s
+		showMessage('Thank you! Your message has been sent.');
 		document.querySelector('.contact-form').reset();
 }
-
-function handleModalClick(e) {
 
 // Image modal popup
 const modal = document.getElementById("imageModal");
