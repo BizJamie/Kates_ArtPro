@@ -51,14 +51,24 @@ cards.forEach(card => {
 		});
 });
 
+function closeModal() {
+		modal.style.display = 'none';
+}
+
 closeBtn.addEventListener("click", () => {
-		modal.style.display = "none";
+		closeModal();
 });
 
 window.addEventListener("click", (e) => {
 		if (e.target === modal) {
-				modal.style.display = "none";
+				closeModal();
 		}
+});
+
+window.addEventListener('keydown', (e) => {
+    if (e.key === "Escape" && modal.style.display === "flex") {
+				closeModal();
+    }
 });
 
 // Smooth scrolling
