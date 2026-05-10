@@ -157,7 +157,13 @@
             color: white;
         }
 
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
         .contact-form button {
+            width: 100%;
             background: #ff7b00;
             color: white;
             padding: 15px 30px;
@@ -170,6 +176,14 @@
 
         .contact-form button:hover {
             background: #ff9d42;
+        }
+
+        .contact-form-message {
+            margin: -1em 0 1em 0;
+            padding: 0.5em;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #ff7b00;
         }
 
         footer {
@@ -354,12 +368,13 @@
         <section id="contact">
             <h2 class="section-title">Contact</h2>
 
-            <div class="contact-form">
-                <input type="text" placeholder="Your Name">
-                <input type="email" placeholder="Your Email">
-                <textarea rows="6" placeholder="Your Message"></textarea>
-                <button onclick="sendMessage()">Send Message</button>
-            </div>
+            <form class="contact-form" onsubmit="sendMessage(event); return false">
+                <p class="contact-form-message"></p>
+                <input id="name" type="text" required placeholder="Name" />
+                <input id="email" type="email" required placeholder="Email" />
+                <textarea id="message" rows="6" required placeholder="Message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
         </section>
     </main>
 
@@ -374,9 +389,38 @@
     </div>
 
     <script>
-        // Contact button
-        function sendMessage() {
-            alert("Thank you! Your message has been sent.");
+        function sendMessage(e) {
+            e.preventDefault();
+            const name    = document.getElementById('name').value.trim();
+            const email   = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // validate
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // build email body from form data
+            const body = [
+                `Name: ${name}`,
+                `Email: ${email}`,
+                ``,
+                `Message:`,
+                message
+            ].join('\n');
+
+            // open link with user's default mail client
+            const mailto = `mailto:you@example.com`
+                + `?subject=${encodeURIComponent('Contact form')}`
+                + `&body=${encodeURIComponent(body)}`;
+            window.location.href = mailto;
+
+            // show thank you message and reset form
+            const messageEl = document.querySelector('.contact-form-message');
+            messageEl.textContent = "Thank you! Your message has been sent.";
+            setTimeout(() => messageEl.textContent = "", 5000); // hide message after 5s
+            document.querySelector('.contact-form').reset();
         }
 
         // Image modal popup
@@ -414,6 +458,5 @@
             });
         });
     </script>
-
 </body>
 </html>
