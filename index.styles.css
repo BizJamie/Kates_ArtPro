@@ -122,7 +122,12 @@ section {
 		width: 350px;
 		border-radius: 20px;
 }
-
+.img {
+		pointer-events: none;
+}
+.bird{
+	style="vertical-align: top;
+}
 .about-text {
 		flex: 1;
 		line-height: 1.8;
