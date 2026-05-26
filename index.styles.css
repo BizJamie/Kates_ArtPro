@@ -91,6 +91,7 @@ section {
 		overflow: hidden;
 		transition: transform 0.4s ease;
 		cursor: none;
+		pointer-events: none;
 }
 
 .art-card:hover {
@@ -106,6 +107,7 @@ section {
 
 .art-card .content {
 		padding: 20px;
+		pointer-events: none;
 }
 
 .art-card h3 {
@@ -124,9 +126,10 @@ section {
 		border-radius: 20px;
 }
 
-.bird{
+.art-card .bird{
 	style="vertical-align: text-top;
 }
+
 .about-text {
 		flex: 1;
 		line-height: 1.8;
