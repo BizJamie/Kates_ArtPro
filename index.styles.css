@@ -126,9 +126,7 @@ section {
 		border-radius: 20px;
 }
 
-.art-card bird {
-	style=vertical-align: text-top;
-}
+/* .art-card bird { 	style=vertical-align: text-top; } */
 
 .about-text {
 		flex: 1;
