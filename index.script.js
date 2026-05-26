@@ -41,15 +41,8 @@ function sendMessage(e) {
 // Image modal popup
 const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("modalImg");
-const cards = document.querySelectorAll(".art-card img");
 const closeBtn = document.querySelector(".close");
-
-cards.forEach(card => {
-		card.addEventListener("click", () => {
-				modal.style.display = "flex";
-				modalImg.src = card.src;
-		});
-});
+const cards = document.querySelectorAll(".art-card img");
 
 function closeModal() {
 		modal.style.display = 'none';
