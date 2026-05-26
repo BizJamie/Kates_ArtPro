@@ -42,7 +42,7 @@ function sendMessage(e) {
 const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("modalImg");
 const closeBtn = document.querySelector(".close");
-const cards = document.querySelectorAll(".art-card img");
+const cards = document.querySelectorAll(".art-card");
 
 function closeModal() {
 		modal.style.display = 'none';
