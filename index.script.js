@@ -42,20 +42,13 @@ function sendMessage(e) {
 const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("modalImg");
 const closeBtn = document.querySelector(".close");
-const cards = document.querySelectorAll(".art-card");
+const cards = document.querySelectorAll(".art-card img");
 
-function closeModal() {
-		modal.style.display = 'none';
-}
-
-closeBtn.addEventListener("click", () => {
-		closeModal();
-});
-
-window.addEventListener("click", (e) => {
-		if (e.target === modal) {
-				closeModal();
-		}
+cards.forEach(card => {
+    card.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modalImg.src = card.src;
+    });
 });
 
 window.addEventListener('keydown', (e) => {
