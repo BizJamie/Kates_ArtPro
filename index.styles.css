@@ -106,7 +106,6 @@ section {
 
 .art-card .content {
 		padding: 20px;
-		pointer-events: none;
 }
 
 .art-card h3 {
@@ -125,7 +124,7 @@ section {
 		border-radius: 20px;
 }
 
-.art-card .bird{
+.art-card bird{
 	style="vertical-align: text-top;
 }
 
