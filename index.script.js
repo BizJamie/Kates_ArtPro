@@ -16,7 +16,7 @@ function sendMessage(e) {
 		if (!name || !email || !message) {
 				showMessage('Please fill in all required fields.');
 				return;
-		}
+}
 
 		// build email body from form data
 		const body = [
@@ -38,7 +38,7 @@ function sendMessage(e) {
 		document.querySelector('.contact-form').reset();
 }
 
-// Image modal popup
+       // Image modal popup
 	    const modal = document.getElementById("imageModal");
 	    const modalImg = document.getElementById("modalImg");
 	    const modalTitle = document.getElementById("modalTitle");
@@ -46,7 +46,7 @@ function sendMessage(e) {
 	
 	    const cards = document.querySelectorAll(".art-card");
 	    const closeBtn = document.querySelector(".close");
-
+	
 	    cards.forEach(card => {
 	
 	    card.addEventListener("click", () => {
@@ -61,18 +61,16 @@ function sendMessage(e) {
         modalTitle.textContent = title;
         modalDescription.textContent = description;
 
-    });
+});
 
 });
 
-    closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
+         closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
 });
 
-    window.addEventListener("click", (e) => {
-
-    if (e.target === modal) {
-        modal.style.display = "none";
-    }
-
+        document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            modal.style.display = "none";
+            }
 });
