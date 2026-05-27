@@ -41,15 +41,22 @@ function sendMessage(e) {
         // Image modal popup
         const modal = document.getElementById("imageModal");
         const modalImg = document.getElementById("modalImg");
-//        const cards = document.querySelectorAll(".art-card img");
+        const cards = document.querySelectorAll(".art-card img");
         const closeBtn = document.querySelector(".close");
-		const cards = document.querySelectorAll(".art-card");
-		
-		cards.forEach(card => {
-		    card.addEventListener("click", () => {
-		        const image = card.querySelector("img");
-		
-		        modal.style.display = "flex";
-		        modalImg.src = image.src;
-		    });
-		});
+
+        cards.forEach(card => {
+            card.addEventListener("click", () => {
+                modal.style.display = "flex";
+                modalImg.src = card.src;
+            });
+        });
+
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
