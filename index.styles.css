@@ -189,6 +189,7 @@ footer {
     align-items: center;
     max-width: 90%;
     text-align: center;
+    pointer-events: none;
 }
 
 .modal-text {
@@ -200,6 +201,21 @@ footer {
 .modal-text h2 {
     font-size: 2rem;
     margin-bottom: 10px;
+}
+
+.modal img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 20px;
+}
+
+.close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
 }
 
 .modal-text p {
