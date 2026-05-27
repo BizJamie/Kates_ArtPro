@@ -89,6 +89,7 @@ section {
 		background: #1b1b1b;
 		border-radius: 15px;
 		overflow: hidden;
+		text-align: center;
 		transition: transform 0.4s ease;
 		cursor: pointer;
 }
@@ -106,6 +107,7 @@ section {
 .art-card img {
 		pointer-events: none;
 }
+
 .art-card .content {
 		padding: 20px;
 }
