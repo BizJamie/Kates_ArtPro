@@ -38,39 +38,83 @@ function sendMessage(e) {
 		document.querySelector('.contact-form').reset();
 }
 
-       // Image modal popup
-	    const modal = document.getElementById("imageModal");
-	    const modalImg = document.getElementById("modalImg");
-	    const modalTitle = document.getElementById("modalTitle");
-	    const modalDescription = document.getElementById("modalDescription");
-	
-	    const cards = document.querySelectorAll(".art-card");
-	    const closeBtn = document.querySelector(".close");
-	
-	    cards.forEach(card => {
-	
-	    card.addEventListener("click", () => {
+// Image modal popup
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDescription = document.getElementById("modalDescription");
 
-        const image = card.querySelector("img");
-        const title = card.querySelector("h3").textContent;
-        const description = card.querySelector("p").textContent;
+    const cards = document.querySelectorAll(".art-card");
+    const closeBtn = document.querySelector(".close");
+
+    cards.forEach(card => {
+
+    card.addEventListener("click", () => {
 
         modal.style.display = "flex";
 
-        modalImg.src = image.src;
         modalTitle.textContent = title;
-        modalDescription.textContent = description;
-
+        modalImg.src = image.src;
+        modalDescription.textContent = description;        
 });
 
 });
 
-         closeBtn.addEventListener("click", () => {
-            modal.style.display = "none";
+let currentIndex = 0;
+function openModal(index) {
+
+    currentIndex = index;
+
+    const card = cards[currentIndex];
+    const image = card.querySelector("img");
+    const title = card.querySelector("h3").textContent;
+    const description = card.querySelector("p").textContent;
+
+    modal.style.display = "flex";
+    modalImg.src = image.src;
+    modalTitle.textContent = title;
+    modalDescription.textContent = description;}
+
+	cards.forEach((card, index) => {
+    card.addEventListener("click", () => {
+        
+		openModal(index);
+});
 });
 
-        document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            modal.style.display = "none";
+	document.addEventListener("keydown", (e) => {
+
+    if (modal.style.display === "flex") {
+
+        // RIGHT ARROW
+        if (e.key === "ArrowRight") {
+
+            currentIndex++;
+
+            if (currentIndex >= cards.length) {
+                currentIndex = 0;
             }
+
+            openModal(currentIndex);
+}
+
+        // LEFT ARROW
+        if (e.key === "ArrowLeft") {
+
+            currentIndex--;
+
+            if (currentIndex < 0) {
+                currentIndex = cards.length - 1;
+}
+
+            openModal(currentIndex);
+}
+
+        // ESC KEY
+        if (e.key === "Escape") {
+            modal.style.display = "none";
+}
+
+}
+
 });
