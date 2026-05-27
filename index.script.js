@@ -38,16 +38,16 @@ function sendMessage(e) {
 		document.querySelector('.contact-form').reset();
 }
 
-        // Image modal popup
-		const modal = document.getElementById("imageModal");
-		const modalImg = document.getElementById("modalImg");
-		const modalTitle = document.getElementById("modalTitle");
-		const modalDescription = document.getElementById("modalDescription");
-        const cards = document.querySelectorAll(".art-card img");
-//		const cards = document.querySelectorAll(".art-card");
-		const closeBtn = document.querySelector(".close");
+// Image modal popup
+	    const modal = document.getElementById("imageModal");
+	    const modalImg = document.getElementById("modalImg");
+	    const modalTitle = document.getElementById("modalTitle");
+	    const modalDescription = document.getElementById("modalDescription");
+	
+	    const cards = document.querySelectorAll(".art-card");
+	    const closeBtn = document.querySelector(".close");
 
-		cards.forEach(card => {
+	    cards.forEach(card => {
 	
 	    card.addEventListener("click", () => {
 
@@ -60,16 +60,19 @@ function sendMessage(e) {
         modalImg.src = image.src;
         modalTitle.textContent = title;
         modalDescription.textContent = description;
+
     });
 
-	});
-	
-		closeBtn.addEventListener("click", () => {
-		modal.style.display = "none";
-	});
-	
-		window.addEventListener("click", (e) => {
-	    if (e.target === modal) {
-	        modal.style.display = "none";
-	    }
-	});
+});
+
+    closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+    window.addEventListener("click", (e) => {
+
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+
+});
